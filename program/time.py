@@ -11,11 +11,11 @@ from config import (
     OWNER_NAME,
     UPDATES_CHANNEL,
 )
-from program import version
+from program import __version__
 from driver.veez import user
 from driver.filters import command, other_filters
 from pyrogram import Client, filters
-from pyrogram import version as pyrover
+from pyrogram import __version__ as pyrover
 from pytgcalls import (__version__ as pytover)
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
@@ -23,7 +23,7 @@ major = 0
 minor = 2
 micro = 1
 
-python_version = f"{version_info[0]}.{version_info[1]}.{version_info[2]}"
+__python_version__ = f"{version_info[0]}.{version_info[1]}.{version_info[2]}"
 
 
 START_TIME = datetime.utcnow()
