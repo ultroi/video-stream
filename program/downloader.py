@@ -18,7 +18,7 @@ from pyrogram import Client, filters
 from pyrogram.errors import FloodWait, MessageNotModified
 from pyrogram.types import Message
 from youtube_search import YoutubeSearch
-from yt_dlp import YoutubeDL
+import yt_dlp 
 
 from config import BOT_USERNAME as bn
 from driver.decorators import humanbytes
@@ -56,7 +56,7 @@ def song(_, message):
         return
     m.edit("📥 downloading file...")
     try:
-        with yt_dlp.YoutubeDL(ydl_ops) as ydl:
+        with yt_dlp as ydl:
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
@@ -115,7 +115,7 @@ async def vsong(client, message):
         print(e)
     try:
         msg = await message.reply("📥 **downloading video...**")
-        with YoutubeDL(ydl_opts) as ytdl:
+        with yt_dpl as ytdl:
             ytdl_data = ytdl.extract_info(link, download=True)
             file_name = ytdl.prepare_filename(ytdl_data)
     except Exception as e:
