@@ -3,7 +3,7 @@ __version__ = '8.5 Beta'
 import time
 import logging
 
-from database.core import me_bot
+from driver.database.core import me_bot
 
 
 logging.BasicConfig(
