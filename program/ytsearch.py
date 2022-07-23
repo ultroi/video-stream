@@ -7,7 +7,7 @@ from pyrogram.types import (
     InlineKeyboardMarkup,
     Message,
 )
-from youtube_search import YoutubeSearch
+import yt-dlp
 
 logging.basicConfig(
     level=logging.DEBUG,
@@ -17,7 +17,7 @@ logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
 
 @Client.on_message(command(["search", f"search@{BOT_USERNAME}"]))
-async def ytsearch(_, message: Message):
+async def yt_dlp(_, message: Message):
 
     keyboard = InlineKeyboardMarkup(
         [
