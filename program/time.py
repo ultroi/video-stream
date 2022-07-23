@@ -11,7 +11,7 @@ from config import (
     OWNER_NAME,
     UPDATES_CHANNEL,
 )
-from program import __version__
+from pyrogram import __version__
 from driver.veez import user
 from driver.filters import command, filter_ex, filters_in
 from pyrogram import Client, filters
