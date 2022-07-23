@@ -17,7 +17,7 @@ from pyrogram.errors import UserAlreadyParticipant, UserNotParticipant, ChatAdmi
 
 
  
-@Client.on_message(command(["startvc", f"startvc@{BOT_USERNAME}"]) & other_filters)
+@Client.on_message(command(["startvc", f"startvc@{BOT_USERNAME}"]) & filters_ex)
 async def start_group_call(c: Client, m: Message):
     chat_id = m.chat.id
     msg = await c.send_message(chat_id, "`starting...`")
@@ -39,7 +39,7 @@ async def start_group_call(c: Client, m: Message):
         )
 
 
-@Client.on_message(command(["stopvc", f"stopvc@{BOT_USERNAME}"]) & other_filters)
+@Client.on_message(command(["stopvc", f"stopvc@{BOT_USERNAME}"]) & filters_ex)
 async def stop_group_call(c: Client, m: Message):
     chat_id = m.chat.id
     msg = await c.send_message(chat_id, "`stopping...`")
