@@ -4,7 +4,7 @@
 
 import re
 import asyncio
-
+import yt_dlp
 from config import ASSISTANT_NAME, BOT_USERNAME, IMG_1, IMG_2
 from driver.filters import command, filters_ex, filters_in
 from driver.queues import QUEUE, add_to_queue
@@ -32,7 +32,7 @@ def ytsearch(query: str):
         return 0
 
 
-async def ytdl(format: str, link: str):
+async def yt_dlp(format: str, link: str):
     stdout, stderr = await bash(f'youtube-dl -g -f "{format}" {link}')
     if stdout:
         return 1, stdout.split("\n")[0]
